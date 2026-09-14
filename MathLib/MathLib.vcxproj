@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{7663b840-96a0-4e74-8e4c-424c6784a34c}</ProjectGuid>
-    <RootNamespace>MathTest</RootNamespace>
+    <ProjectGuid>{79b1d756-77c0-4a83-9ba9-f20fffbf4f9e}</ProjectGuid>
+    <RootNamespace>MathLib</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -40,7 +40,7 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
@@ -123,12 +123,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="mathtest.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MathLib\MathLib.vcxproj">
-      <Project>{79b1d756-77c0-4a83-9ba9-f20fffbf4f9e}</Project>
-    </ProjectReference>
+    <ClInclude Include="mathtest.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
