@@ -2,7 +2,6 @@
 #include "pch.h"
 #include "mathtest.h"
 
-
 TEST(SampleTest, AlwaysPasses)
 {
     EXPECT_EQ(1, 1);
