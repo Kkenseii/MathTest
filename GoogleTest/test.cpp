@@ -7,6 +7,14 @@ TEST(SampleTest, AlwaysPasses)
     EXPECT_EQ(1, 1);
 }
 
+
+TEST(TaskTest, CheckingMaxNMin) {
+    Task t(20, 10, '+');
+    EXPECT_EQ(t.num_1, 10);
+    EXPECT_EQ(t.num_2, 20);
+}
+
+
 TEST(TaskTest, DefaultCtorValid)
 {
     for (int i = 0; i < 50; ++i)

@@ -19,6 +19,12 @@ Task::Task() : Task(1, 20, '\0') {}
 Task::Task(int min, int max, char op) {
     _operation = (op == '\0') ? rnd_op() : op;
 
+    if (min > max) {
+        int t = max;
+        max = min;
+        min = t;
+    }
+
     if (_operation == '/') {
         num_2 = rnd(1, max);
         int res = rnd(min, max);
