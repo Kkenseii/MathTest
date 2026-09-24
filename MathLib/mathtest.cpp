@@ -40,11 +40,11 @@ Task::Task(int min, int max, char op) {
     }
 }
 
-void Task::print() const {
+void Task::print() const noexcept {
     std::cout << num_1 << " " << _operation << " " << num_2;
 }
 
-static void pad(int value, int width)
+static void add_spaces(int value, int width)
 {
     int len = 0;
     int tmp = value;
@@ -58,7 +58,7 @@ static void pad(int value, int width)
     std::cout << value;
 }
 
-static void pad(const char* s, int width)
+static void add_spaces(const char* s, int width)
 {
     int len = 0;
     while (s[len] != '\0') ++len;
@@ -97,7 +97,7 @@ void MathTest::submit_answer(int i, int a)
     if (a == tasks[i]._answer) ++correct_count;
 }
 
-char MathTest::get_mark() const
+char MathTest::get_mark() const noexcept
 {
     if (count == 0) return 'F';
     double r = (double)correct_count / count;
@@ -108,8 +108,7 @@ char MathTest::get_mark() const
     return 'F';
 }
 
-void MathTest::run()
-{
+void MathTest::run() {
     for (int i = 0; i < count; ++i)
     {
         std::cout << "Question " << (i + 1) << ": ";
@@ -121,15 +120,14 @@ void MathTest::run()
     show_statistics();
 }
 
-void MathTest::show_statistics() const
-{
+void MathTest::show_statistics() const noexcept {
     std::cout << "|";
-    pad("No", 12);
+    add_spaces("No", 12);
     std::cout << " |";
     for (int i = 0; i < count; ++i)
     {
         std::cout << " ";
-        pad(i + 1, 7);
+        add_spaces(i + 1, 7);
         std::cout << " |";
     }
     std::cout << "\n+";
@@ -137,7 +135,7 @@ void MathTest::show_statistics() const
     std::cout << "\n";
 
     std::cout << "|";
-    pad("Question", 12);
+    add_spaces("Question", 12);
     std::cout << " |";
     for (int i = 0; i < count; ++i)
     {
@@ -171,41 +169,41 @@ void MathTest::show_statistics() const
         buf[n] = '\0';
 
         std::cout << " ";
-        pad(buf, 7);
+        add_spaces(buf, 7);
         std::cout << " |";
     }
     std::cout << "\n";
 
     std::cout << "|";
-    pad("True Answer", 12);
+    add_spaces("True Answer", 12);
     std::cout << " |";
     for (int i = 0; i < count; ++i)
     {
         std::cout << " ";
-        pad(tasks[i]._answer, 7);
+        add_spaces(tasks[i]._answer, 7);
         std::cout << " |";
     }
     std::cout << "\n";
 
     std::cout << "|";
-    pad("Your Answer", 12);
+    add_spaces("Your Answer", 12);
     std::cout << " |";
     for (int i = 0; i < count; ++i)
     {
         std::cout << " ";
-        pad(user_answers[i], 7);
+        add_spaces(user_answers[i], 7);
         std::cout << " |";
     }
     std::cout << "\n";
 
     std::cout << "|";
-    pad("Result", 12);
+    add_spaces("Result", 12);
     std::cout << " |";
     for (int i = 0; i < count; ++i)
     {
         const char* mark = (user_answers[i] == tasks[i]._answer) ? "+" : "-";
         std::cout << " ";
-        pad(mark, 7);
+        add_spaces(mark, 7);
         std::cout << " |";
     }
     std::cout << "\n\n";

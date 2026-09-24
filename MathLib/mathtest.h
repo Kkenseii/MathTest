@@ -9,7 +9,7 @@ struct Task {
 
 	Task();
 	Task(int min, int max, char operation = '\0');
-	void print() const;
+	void print() const noexcept;
 };
 
 class MathTest {
@@ -26,17 +26,17 @@ public:
     ~MathTest();
 
     void run();               
-    void show_statistics() const;
+    void show_statistics() const noexcept;
     void submit_answer(int i, int a);  
-    char get_mark() const;
+    char get_mark() const noexcept;
 
-    int get_count() const { 
+    int get_count() const noexcept { 
         return count; 
     }
-    int get_correct() const { 
+    int get_correct() const noexcept { 
         return correct_count; 
     }
-    int get_user_answer(int i) const { 
+    int get_user_answer(int i) const noexcept { 
         return user_answers[i]; 
     }
     const Task& get_task(int i) const { 

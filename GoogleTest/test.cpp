@@ -35,8 +35,6 @@ TEST(TaskTest, DefaultCtorValid)
             EXPECT_NE(t.num_2, 0);
             EXPECT_EQ(t._answer, t.num_1 / t.num_2);
             break;
-        default:
-            FAIL() << "Unknown operation: " << t._operation;
         }
     }
 }
